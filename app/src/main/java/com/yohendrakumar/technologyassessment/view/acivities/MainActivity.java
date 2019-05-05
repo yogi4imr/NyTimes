@@ -14,6 +14,8 @@ import com.yohendrakumar.technologyassessment.model.ApiResponse;
 import com.yohendrakumar.technologyassessment.view.listadapters.ArticleListAdapter;
 import com.yohendrakumar.technologyassessment.viewmodel.ArticleViewModel;
 
+import io.reactivex.Single;
+
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView articleListView;
@@ -41,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     public void loadArticle() {
         progressDialog.setMessage("Please wait...");
         progressDialog.show();
-        LiveData<ApiResponse> apiResponseLiveData = articleViewModel.getApiResponseLiveData();
+        LiveData<ApiResponse> apiResponseLiveData = articleViewModel.getTask();
         apiResponseLiveData.observe(this, new Observer<ApiResponse>() {
             @Override
             public void onChanged(@Nullable ApiResponse apiResponse) {

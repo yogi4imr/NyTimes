@@ -39,7 +39,7 @@ public class ArticleViewModelTest {
     @Test
     public void getApiResponseLiveData() {
 
-        LiveData<ApiResponse> apiResponseLiveData = mArticleViewModel.getApiResponseLiveData();
+        LiveData<ApiResponse> apiResponseLiveData = mArticleViewModel.getTask();
         ApiResponse apiResponse  = apiResponseLiveData.getValue();
         ResultsItem resultsItem = apiResponse.getResults().get(0);
         String type = resultsItem.getType();
